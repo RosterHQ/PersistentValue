@@ -1,0 +1,27 @@
+PODS:
+  - KeychainAccess (3.1.2)
+  - PersistentValue (0.1.0):
+    - KeychainAccess (~> 3.1)
+    - SwiftyUserDefaults (~> 3.0)
+  - SwiftyUserDefaults (3.0.1)
+
+DEPENDENCIES:
+  - PersistentValue (from `../`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - KeychainAccess
+    - SwiftyUserDefaults
+
+EXTERNAL SOURCES:
+  PersistentValue:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  KeychainAccess: b3816fddcf28aa29d94b10ec305cd52be14c472b
+  PersistentValue: 207ad3c14966f61ce4bba874eafc83ec500077e3
+  SwiftyUserDefaults: 3d273b1739b68ada3145dc754a70ec775bc5c8be
+
+PODFILE CHECKSUM: 3c0151edf712177050fbf79f7b8db1bf76dd78e6
+
+COCOAPODS: 1.5.3

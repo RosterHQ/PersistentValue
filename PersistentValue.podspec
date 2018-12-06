@@ -9,34 +9,17 @@
 Pod::Spec.new do |s|
   s.name             = 'PersistentValue'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of PersistentValue.'
+  s.summary          = 'Type safe persistent values for NSUserDefaults and for the KeyChain'
 
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!
-
-  s.description      = <<-DESC
-TODO: Add long description of the pod here.
-                       DESC
-
-  s.homepage         = 'https://github.com/crspybits/PersistentValue'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
+  s.homepage         = 'https://github.com/RosterHQ/PersistentValue'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'crspybits' => 'chris@SpasticMuffin.biz' }
-  s.source           = { :git => 'https://github.com/crspybits/PersistentValue.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.source           = { :git => 'https://github.com/RosterHQ/PersistentValue.git', :tag => s.version.to_s }
 
   s.ios.deployment_target = '8.0'
-
   s.source_files = 'PersistentValue/Classes/**/*'
-  
-  # s.resource_bundles = {
-  #   'PersistentValue' => ['PersistentValue/Assets/*.png']
-  # }
+  s.dependency 'KeychainAccess', '~> 3.1'
+  s.dependency 'SwiftyUserDefaults', '~> 3.0'
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.swift_version = '4.2'
 end
