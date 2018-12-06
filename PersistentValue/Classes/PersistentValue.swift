@@ -9,12 +9,12 @@ import SwiftyUserDefaults
 import KeychainAccess
 import Foundation
 
-enum PersistentValueStorage {
+public enum PersistentValueStorage {
     case userDefaults
     case keyChain
 }
 
-class PersistentValue<T> {
+public class PersistentValue<T> {
     // Previously, this string was the same across some variants of the app I was building -- however, this generated a problem -- it caused sharing of keychain values across the app store and beta apps! See also https://stackoverflow.com/questions/47272209/sharing-of-keychain-values-across-apps-with-similar-bundle-ids
     private let keychainService = Bundle.main.bundleIdentifier!
     
@@ -33,7 +33,7 @@ class PersistentValue<T> {
         case data
     }
     
-    init(name: String, storage: PersistentValueStorage) throws {
+    public init(name: String, storage: PersistentValueStorage) throws {
         self.storage = storage
         self.name = name
                 
@@ -51,7 +51,7 @@ class PersistentValue<T> {
         }
     }
     
-    var value:T {
+    public var value:T {
         set {
             switch storage {
                 case .userDefaults:

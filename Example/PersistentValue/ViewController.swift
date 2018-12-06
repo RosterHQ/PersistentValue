@@ -9,10 +9,11 @@
 import UIKit
 import PersistentValue
 
-class ViewController: UIViewController {    
+class ViewController: UIViewController {
+    static let string = try! PersistentValue<String>(name: "My String", storage: .userDefaults)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
 }
 

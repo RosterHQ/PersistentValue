@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'PersistentValue'
-  s.version          = '0.1.0'
+  s.version          = '0.2.0'
   s.summary          = 'Type safe persistent values for NSUserDefaults and for the KeyChain'
 
   s.homepage         = 'https://github.com/RosterHQ/PersistentValue'
