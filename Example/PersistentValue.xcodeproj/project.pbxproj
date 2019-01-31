@@ -14,6 +14,7 @@
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		690E27A92D5EA2BDCF021B67 /* Pods_PersistentValue_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEEA5196CA6AC9899D08C0FE /* Pods_PersistentValue_Example.framework */; };
+		83151FDD2202A42000CA773D /* PersistentValueFileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83151FDC2202A42000CA773D /* PersistentValueFileTests.swift */; };
 		83D0ECB621B8D44600BCBF64 /* PersistentValueTests1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D0ECB421B8D44600BCBF64 /* PersistentValueTests1.swift */; };
 		83D0ECB721B8D44600BCBF64 /* PersistentValueTests2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D0ECB521B8D44600BCBF64 /* PersistentValueTests2.swift */; };
 /* End PBXBuildFile section */
@@ -42,6 +43,7 @@
 		607FACE51AFB9204008FA782 /* PersistentValue_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PersistentValue_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8147B0DCBEBD992D740619BD /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		83151FDC2202A42000CA773D /* PersistentValueFileTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentValueFileTests.swift; sourceTree = "<group>"; };
 		83D0ECB421B8D44600BCBF64 /* PersistentValueTests1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistentValueTests1.swift; sourceTree = "<group>"; };
 		83D0ECB521B8D44600BCBF64 /* PersistentValueTests2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistentValueTests2.swift; sourceTree = "<group>"; };
 		8D8DC399076E148C167839F0 /* Pods_PersistentValue_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PersistentValue_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -117,6 +119,7 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				83151FDC2202A42000CA773D /* PersistentValueFileTests.swift */,
 				83D0ECB421B8D44600BCBF64 /* PersistentValueTests1.swift */,
 				83D0ECB521B8D44600BCBF64 /* PersistentValueTests2.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
@@ -215,12 +218,12 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
-						DevelopmentTeam = 4BPBWM9E57;
+						DevelopmentTeam = BH68R29JBE;
 						LastSwiftMigration = 1010;
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
-						DevelopmentTeam = 4BPBWM9E57;
+						DevelopmentTeam = BH68R29JBE;
 						LastSwiftMigration = 1010;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
@@ -341,6 +344,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				83D0ECB621B8D44600BCBF64 /* PersistentValueTests1.swift in Sources */,
+				83151FDD2202A42000CA773D /* PersistentValueFileTests.swift in Sources */,
 				83D0ECB721B8D44600BCBF64 /* PersistentValueTests2.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -485,7 +489,7 @@
 			baseConfigurationReference = 49A77B641C00C2DB16CBC673 /* Pods-PersistentValue_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 4BPBWM9E57;
+				DEVELOPMENT_TEAM = BH68R29JBE;
 				INFOPLIST_FILE = PersistentValue/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
@@ -500,7 +504,7 @@
 			baseConfigurationReference = 9CD0FF26CC3613F8A116F265 /* Pods-PersistentValue_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 4BPBWM9E57;
+				DEVELOPMENT_TEAM = BH68R29JBE;
 				INFOPLIST_FILE = PersistentValue/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
@@ -514,7 +518,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = AA8CD55BC0C820D3759B388D /* Pods-PersistentValue_Tests.debug.xcconfig */;
 			buildSettings = {
-				DEVELOPMENT_TEAM = 4BPBWM9E57;
+				DEVELOPMENT_TEAM = BH68R29JBE;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -533,7 +537,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 30BC3A616BEA886F8B09C02D /* Pods-PersistentValue_Tests.release.xcconfig */;
 			buildSettings = {
-				DEVELOPMENT_TEAM = 4BPBWM9E57;
+				DEVELOPMENT_TEAM = BH68R29JBE;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

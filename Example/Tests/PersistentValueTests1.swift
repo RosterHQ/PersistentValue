@@ -44,6 +44,18 @@ class PersistentValueTests1: XCTestCase {
         let _ = try! PersistentValue<Bool>(name: "testBool1", storage: .keyChain)
     }
     
+    func testStringTypeFileDeclarationDoesNotThrowError() {
+        let _ = try! PersistentValue<String>(name: "testString1", storage: .file)
+    }
+    
+    func testIntTypeFileDeclarationDoesNotThrowError() {
+        let _ = try! PersistentValue<Int>(name: "testInt1", storage: .file)
+    }
+    
+    func testBoolTypeUserFileDeclarationDoesNotThrowError() {
+        let _ = try! PersistentValue<Bool>(name: "testBool1", storage: .file)
+    }
+    
     // We may support this later, but for now a Double is unsupported.
     func testUnsupportedTypeDeclarationThrowsError() {
         var threwError = false
@@ -58,9 +70,9 @@ class PersistentValueTests1: XCTestCase {
     static let testStringNotUsed = "testStringNotUsed"
     static let testStringValueNotUsed = "123"
     
-    func testRetrievingUndefinedUserDefaultsStringGivesBlank() {
+    func testRetrievingUndefinedUserDefaultsStringGivesNil() {
         let item = try! PersistentValue<String>(name: PersistentValueTests1.testStringNotUsed, storage: .userDefaults)
-        XCTAssert(item.value == "")
+        XCTAssert(item.value == nil, "\(String(describing: item.value))")
     }
     
     static let testIntNotUsed = "testIntNotUsed"
@@ -69,29 +81,44 @@ class PersistentValueTests1: XCTestCase {
     static let testBoolNotUsed = "testBoolNotUsed"
     static let testBoolValueNotUsed = true
     
-    func testRetrievingUndefinedUserDefaultsIntGivesZero() {
+    func testRetrievingUndefinedUserDefaultsIntGivesNil() {
         let item = try! PersistentValue<Int>(name: PersistentValueTests1.testIntNotUsed, storage: .userDefaults)
-        XCTAssert(item.value == 0)
+        XCTAssert(item.value == nil, "\(String(describing: item.value))")
     }
     
-    func testRetrievingUndefinedUserDefaultsBoolGivesFalse() {
+    func testRetrievingUndefinedUserDefaultsBoolGivesNil() {
         let item = try! PersistentValue<Bool>(name: PersistentValueTests1.testBoolNotUsed, storage: .userDefaults)
-        XCTAssert(item.value == false)
+        XCTAssert(item.value == nil)
     }
     
-    func testRetrievingUndefinedKeyChainStringGivesBlank() {
+    func testRetrievingUndefinedKeyChainStringGivesNil() {
         let item = try! PersistentValue<String>(name: PersistentValueTests1.testStringNotUsed, storage: .keyChain)
-        XCTAssert(item.value == "")
+        XCTAssert(item.value == nil)
     }
     
-    func testRetrievingUndefinedKeyChainIntGivesZero() {
+    func testRetrievingUndefinedKeyChainIntGivesNil() {
         let item = try! PersistentValue<Int>(name: PersistentValueTests1.testIntNotUsed, storage: .keyChain)
-        XCTAssert(item.value == 0)
+        XCTAssert(item.value == nil)
     }
     
-    func testRetrievingUndefinedKeyChainBoolGivesFalse() {
+    func testRetrievingUndefinedKeyChainBoolGivesNil() {
         let item = try! PersistentValue<Bool>(name: PersistentValueTests1.testBoolNotUsed, storage: .keyChain)
-        XCTAssert(item.value == false)
+        XCTAssert(item.value == nil)
+    }
+    
+    func testRetrievingUndefinedFileStringGivesNil() {
+        let item = try! PersistentValue<String>(name: PersistentValueTests1.testStringNotUsed, storage: .file)
+        XCTAssert(item.value == nil)
+    }
+    
+    func testRetrievingUndefinedFileIntGivesNil() {
+        let item = try! PersistentValue<Int>(name: PersistentValueTests1.testIntNotUsed, storage: .file)
+        XCTAssert(item.value == nil)
+    }
+    
+    func testRetrievingUndefinedFileBoolGivesNil() {
+        let item = try! PersistentValue<Bool>(name: PersistentValueTests1.testBoolNotUsed, storage: .file)
+        XCTAssert(item.value == nil)
     }
     
     static let testString2 = "testString2"
@@ -100,13 +127,19 @@ class PersistentValueTests1: XCTestCase {
     func testStoringStringUserDefaultsTypeResultsInRetrieval() {
         let item = try! PersistentValue<String>(name: PersistentValueTests1.testString2, storage: .userDefaults)
         item.value = PersistentValueTests1.testStringValue2
-        XCTAssert(item.value == PersistentValueTests1.testStringValue2, "Value was: \(item.value)")
+        XCTAssert(item.value == PersistentValueTests1.testStringValue2, "Value was: \(String(describing: item.value))")
     }
     
     func testStoringStringKeyChainTypeResultsInRetrieval() {
         let item = try! PersistentValue<String>(name: PersistentValueTests1.testString2, storage: .keyChain)
         item.value = PersistentValueTests1.testStringValue2
-        XCTAssert(item.value == PersistentValueTests1.testStringValue2, "Value was: \(item.value)")
+        XCTAssert(item.value == PersistentValueTests1.testStringValue2, "Value was: \(String(describing: item.value))")
+    }
+    
+    func testStoringStringFileTypeResultsInRetrieval() {
+        let item = try! PersistentValue<String>(name: PersistentValueTests1.testString2, storage: .file)
+        item.value = PersistentValueTests1.testStringValue2
+        XCTAssert(item.value == PersistentValueTests1.testStringValue2, "Value was: \(String(describing: item.value))")
     }
     
     static let testInt2 = "testInt2"
@@ -115,13 +148,19 @@ class PersistentValueTests1: XCTestCase {
     func testStoringIntUserDefaultsTypeResultsInRetrieval() {
         let item = try! PersistentValue<Int>(name: PersistentValueTests1.testInt2, storage: .userDefaults)
         item.value = PersistentValueTests1.testIntValue2
-        XCTAssert(item.value == PersistentValueTests1.testIntValue2, "Value was: \(item.value)")
+        XCTAssert(item.value == PersistentValueTests1.testIntValue2, "Value was: \(String(describing: item.value))")
     }
     
     func testStoringIntKeyChainTypeResultsInRetrieval() {
         let item = try! PersistentValue<Int>(name: PersistentValueTests1.testInt2, storage: .keyChain)
         item.value = PersistentValueTests1.testIntValue2
-        XCTAssert(item.value == PersistentValueTests1.testIntValue2, "Value was: \(item.value)")
+        XCTAssert(item.value == PersistentValueTests1.testIntValue2, "Value was: \(String(describing: item.value))")
+    }
+    
+    func testStoringIntFileTypeResultsInRetrieval() {
+        let item = try! PersistentValue<Int>(name: PersistentValueTests1.testInt2, storage: .file)
+        item.value = PersistentValueTests1.testIntValue2
+        XCTAssert(item.value == PersistentValueTests1.testIntValue2, "Value was: \(String(describing: item.value))")
     }
     
     static let testBool2 = "testBool2"
@@ -130,13 +169,19 @@ class PersistentValueTests1: XCTestCase {
     func testStoringBoolUserDefaultsTypeResultsInRetrieval() {
         let item = try! PersistentValue<Bool>(name: PersistentValueTests1.testBool2, storage: .userDefaults)
         item.value = PersistentValueTests1.testBoolValue2
-        XCTAssert(item.value == PersistentValueTests1.testBoolValue2, "Value was: \(item.value)")
+        XCTAssert(item.value == PersistentValueTests1.testBoolValue2, "Value was: \(String(describing: item.value))")
     }
     
     func testStoringBoolKeyChainTypeResultsInRetrieval() {
         let item = try! PersistentValue<Bool>(name: PersistentValueTests1.testBool2, storage: .keyChain)
         item.value = PersistentValueTests1.testBoolValue2
-        XCTAssert(item.value == PersistentValueTests1.testBoolValue2, "Value was: \(item.value)")
+        XCTAssert(item.value == PersistentValueTests1.testBoolValue2, "Value was: \(String(describing: item.value))")
+    }
+    
+    func testStoringBoolFileTypeResultsInRetrieval() {
+        let item = try! PersistentValue<Bool>(name: PersistentValueTests1.testBool2, storage: .file)
+        item.value = PersistentValueTests1.testBoolValue2
+        XCTAssert(item.value == PersistentValueTests1.testBoolValue2, "Value was: \(String(describing: item.value))")
     }
     
     // MARK: Data
@@ -149,16 +194,23 @@ class PersistentValueTests1: XCTestCase {
         let _ = try! PersistentValue<Data>(name: "testData1", storage: .keyChain)
     }
     
-    func testRetrievingUndefinedUserDefaultsDataGivesEmptyData() {
-        let item = try! PersistentValue<Data>(name: "testData2", storage: .userDefaults)
-        XCTAssert(item.value == Data())
-        XCTAssert(item.value.count == 0)
+    func testDataTypeFileDeclarationDoesNotThrowError() {
+        let _ = try! PersistentValue<Data>(name: "testData1", storage: .file)
     }
     
-    func testRetrievingUndefinedKeyChainDataGivesEmptyData() {
+    func testRetrievingUndefinedUserDefaultsDataGivesNilData() {
+        let item = try! PersistentValue<Data>(name: "testData2", storage: .userDefaults)
+        XCTAssert(item.value == nil)
+    }
+    
+    func testRetrievingUndefinedKeyChainDataGivesNilData() {
         let item = try! PersistentValue<Data>(name: "testData2", storage: .keyChain)
-        XCTAssert(item.value == Data())
-        XCTAssert(item.value.count == 0)
+        XCTAssert(item.value == nil)
+    }
+    
+    func testRetrievingUndefinedFileDataGivesNilData() {
+        let item = try! PersistentValue<Data>(name: "testData2", storage: .file)
+        XCTAssert(item.value == nil)
     }
     
     static let dataKey3 = "testData3"
@@ -168,7 +220,7 @@ class PersistentValueTests1: XCTestCase {
         let item = try! PersistentValue<Data>(name: PersistentValueTests1.dataKey3, storage: .userDefaults)
         let exampleData = PersistentValueTests1.dataValue3
         item.value = exampleData
-        XCTAssert(item.value == exampleData, "Value was: \(item.value)")
+        XCTAssert(item.value == exampleData, "Value was: \(String(describing: item.value))")
     }
 
     static let dataKey4 = "testData4"
@@ -178,7 +230,13 @@ class PersistentValueTests1: XCTestCase {
         let item = try! PersistentValue<Data>(name: PersistentValueTests1.dataKey4, storage: .keyChain)
         let exampleData = PersistentValueTests1.dataValue4
         item.value = exampleData
-        XCTAssert(item.value == exampleData, "Value was: \(item.value)")
+        XCTAssert(item.value == exampleData, "Value was: \(String(describing: item.value))")
     }
     
+    func testStoringDataFileTypeResultsInRetrieval() {
+        let item = try! PersistentValue<Data>(name: PersistentValueTests1.dataKey4, storage: .file)
+        let exampleData = PersistentValueTests1.dataValue4
+        item.value = exampleData
+        XCTAssert(item.value == exampleData, "Value was: \(String(describing: item.value))")
+    }
 }
