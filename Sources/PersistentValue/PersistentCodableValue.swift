@@ -7,6 +7,7 @@
 
 import SwiftyUserDefaults
 import KeychainAccess
+import Foundation
 
 public class PersistentCodableValue<T: Codable> {
     private let storage: PersistentValueStorage
