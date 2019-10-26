@@ -24,8 +24,8 @@
 		7CEE095BEAC3D3E96C933D362012BFD3 /* PersistentValue-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA3932124D0FDD0E71D46031225CD46 /* PersistentValue-dummy.m */; };
 		8306A6BB21C6C5E4B9DBE609C7B62959 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49F11482A8841836DD370E09B9710550 /* Foundation.framework */; };
 		8387DC84236400A60041C77A /* Persist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8387DC83236400A60041C77A /* Persist.swift */; };
-		8387DC86236400F70041C77A /* PersistentCodableValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8387DC85236400F70041C77A /* PersistentCodableValue.swift */; };
-		8387DC88236401080041C77A /* PersistCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8387DC87236401080041C77A /* PersistCodable.swift */; };
+		8387DC8C236418120041C77A /* PersistentCodableValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8387DC8B236418120041C77A /* PersistentCodableValue.swift */; };
+		8387DC8E236418290041C77A /* PersistCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8387DC8D236418290041C77A /* PersistCodable.swift */; };
 		867FD51AA52412D9315E92CE52AC0EC3 /* PersistentValue-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C0B525009BD5FF0804297AC55F9EA752 /* PersistentValue-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8E016CA4AA171B3AF689E51FC3F7DEA0 /* Defaults+StringToBool.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA399BF0E07D8D238D22A31FADFC2268 /* Defaults+StringToBool.swift */; };
 		8F45500213EE8340AC0DD24CD8B88F45 /* SwiftyUserDefaults-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBEF84BFACC75C08705C633E52CFEA0 /* SwiftyUserDefaults-dummy.m */; };
@@ -119,8 +119,8 @@
 		7A943C51EF75A4ABD23095FA096D6F0F /* Defaults.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Defaults.swift; path = Sources/Defaults.swift; sourceTree = "<group>"; };
 		807E2A499D5EC5603AFE356EAA856A0C /* Pods-PersistentValue_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-PersistentValue_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		8387DC83236400A60041C77A /* Persist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Persist.swift; path = Sources/PersistentValue/Persist.swift; sourceTree = "<group>"; };
-		8387DC85236400F70041C77A /* PersistentCodableValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentCodableValue.swift; sourceTree = "<group>"; };
-		8387DC87236401080041C77A /* PersistCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistCodable.swift; sourceTree = "<group>"; };
+		8387DC8B236418120041C77A /* PersistentCodableValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PersistentCodableValue.swift; path = Sources/PersistentValue/PersistentCodableValue.swift; sourceTree = "<group>"; };
+		8387DC8D236418290041C77A /* PersistCodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PersistCodable.swift; path = Sources/PersistentValue/PersistCodable.swift; sourceTree = "<group>"; };
 		856AC6619427E9CB670D77EC6C8BBDE8 /* Pods-PersistentValue_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PersistentValue_Tests-Info.plist"; sourceTree = "<group>"; };
 		8BA3932124D0FDD0E71D46031225CD46 /* PersistentValue-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "PersistentValue-dummy.m"; sourceTree = "<group>"; };
 		91D8676C5CF8B516286660D4C604ADD7 /* Pods-PersistentValue_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PersistentValue_Example-Info.plist"; sourceTree = "<group>"; };
@@ -250,10 +250,10 @@
 		7E1332A2CEDCCAB654F57FC5C9AD873E /* PersistentValue */ = {
 			isa = PBXGroup;
 			children = (
+				8387DC8B236418120041C77A /* PersistentCodableValue.swift */,
+				8387DC8D236418290041C77A /* PersistCodable.swift */,
 				23DE560D9271EA6DCDDFB23D5142850E /* PersistentValue.swift */,
-				8387DC85236400F70041C77A /* PersistentCodableValue.swift */,
 				8387DC83236400A60041C77A /* Persist.swift */,
-				8387DC87236401080041C77A /* PersistCodable.swift */,
 				BC5CD5CC2BAE1122E78FD4F61C9DF11F /* Pod */,
 				8015CCD289F426F5333A2E461A445824 /* Support Files */,
 			);
@@ -607,10 +607,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				7CEE095BEAC3D3E96C933D362012BFD3 /* PersistentValue-dummy.m in Sources */,
-				8387DC88236401080041C77A /* PersistCodable.swift in Sources */,
 				3C5D2D0073D8F7A393056F2E659EA1F9 /* PersistentValue.swift in Sources */,
 				8387DC84236400A60041C77A /* Persist.swift in Sources */,
-				8387DC86236400F70041C77A /* PersistentCodableValue.swift in Sources */,
+				8387DC8C236418120041C77A /* PersistentCodableValue.swift in Sources */,
+				8387DC8E236418290041C77A /* PersistCodable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
