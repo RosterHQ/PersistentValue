@@ -9,26 +9,8 @@ import SwiftyUserDefaults
 import KeychainAccess
 import Foundation
 
-// See https://nshipster.com/propertywrapper/
-@propertyWrapper
-public struct Persist<Type> {
-    private let persisted: PersistentValue<Type>
-    
-    public init(in storage: PersistentValueStorage, name: String, initialValue: Type? = nil) {
-        persisted = try! PersistentValue<Type>(name: name, storage: storage)
-        
-        if let initialValue = initialValue, persisted.value == nil {
-            persisted.value = initialValue
-        }
-    }
-
-    public var wrappedValue: Type? {
-        get {
-            persisted.value
-        }
-        set { persisted.value = newValue }
-    }
-}
+// Previously, this string was the same across some variants of the app I was building -- however, this generated a problem -- it caused sharing of keychain values across the app store and beta apps! See also (https://stackoverflow.com/questions/47272209/sharing-of-keychain-values-across-apps-with-similar-bundle-ids)
+let keychainService = Bundle.main.bundleIdentifier!
 
 public enum PersistentValueStorage {
     case userDefaults
@@ -41,11 +23,13 @@ public enum PersistentValueStorage {
 class PersistentValueFile {
     // for PersistentValueStorage.file; directory is the Documents directory for the app.
     static let defaultBackingFile = "PersistentValues"
-    static var backingFile = defaultBackingFile
+    
+    // Change this at app launch if you want to change the backing file used for PersistentValueStorage.file
+    public static var backingFile = defaultBackingFile
     
     static var filePath: String {
         let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
-        return documentsPath + "/" + backingFile
+        return documentsPath + "/" + PersistentValueFile.backingFile
     }
     
     static func write(dictionary: Dictionary<String, Any>) -> Bool {
@@ -84,9 +68,6 @@ class PersistentValueFile {
 }
 
 public class PersistentValue<T> {
-    // Previously, this string was the same across some variants of the app I was building -- however, this generated a problem -- it caused sharing of keychain values across the app store and beta apps! See also (https://stackoverflow.com/questions/47272209/sharing-of-keychain-values-across-apps-with-similar-bundle-ids)
-    private let keychainService = Bundle.main.bundleIdentifier!
-    
     enum KeyValueError : Error {
         case unsupportedGenericType
     }
@@ -100,11 +81,6 @@ public class PersistentValue<T> {
         case int
         case bool
         case data
-    }
-    
-    // You only need to call this at app launch if you want to change the backing file used for PersistentValueStorage.file
-    public static func appLaunchSetup(backingFile: String) {
-        PersistentValueFile.backingFile = backingFile
     }
     
     public init(name: String, storage: PersistentValueStorage) throws {

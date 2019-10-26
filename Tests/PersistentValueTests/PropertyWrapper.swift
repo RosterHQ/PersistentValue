@@ -273,4 +273,94 @@ class PropertyWrapper: XCTestCase {
 
         fileDataWithNoInitialValue = nil
     }
+    
+    // MARK: Codable, UserDefaults
+    
+    struct CodableStruct: Codable, Equatable {
+        let int: Int
+        let str: String
+    }
+    
+    @PersistCodable(in: .userDefaults, name: "codableUserDefaultsWithNoInitialValue")
+        var codableUserDefaultsWithNoInitialValue: CodableStruct?
+    static let value1 = CodableStruct(int: 3, str: "foo2")
+
+    @PersistCodable(in: .userDefaults, name: "codableUserDefaultsWithInitialValue", initialValue: PropertyWrapper.value1)
+        var codableUserDefaultsWithInitialValue: CodableStruct
+        
+    func testCodableUserDefaultsIntWithNoInitialValue() {
+        XCTAssert(codableUserDefaultsWithNoInitialValue == nil)
+        
+        let value = CodableStruct(int: 1, str: "foo")
+        codableUserDefaultsWithNoInitialValue = value
+        
+        XCTAssert(codableUserDefaultsWithNoInitialValue == value)
+        codableUserDefaultsWithNoInitialValue = nil
+    }
+    
+    func testCodableUserDefaultsIntWithInitialValue() {
+        XCTAssert(codableUserDefaultsWithInitialValue == PropertyWrapper.value1)
+        
+        let value2 = CodableStruct(int: 3, str: "foo2")
+        codableUserDefaultsWithInitialValue = value2
+        
+        XCTAssert(codableUserDefaultsWithInitialValue == value2)
+        codableUserDefaultsWithInitialValue = PropertyWrapper.value1
+    }
+    
+    // MARK: Codable, KeyChain
+
+    @PersistCodable(in: .keyChain, name: "codableKeyChainWithNoInitialValue")
+        var codableKeyChainWithNoInitialValue: CodableStruct?
+
+    @PersistCodable(in: .keyChain, name: "codableKeyChainWithInitialValue", initialValue: PropertyWrapper.value1)
+        var codableKeyChainWithInitialValue: CodableStruct
+        
+    func testCodableKeyChainWithNoInitialValue() {
+        XCTAssert(codableKeyChainWithNoInitialValue == nil)
+        
+        let value = CodableStruct(int: 1, str: "foo")
+        codableKeyChainWithNoInitialValue = value
+        
+        XCTAssert(codableKeyChainWithNoInitialValue == value)
+        codableKeyChainWithNoInitialValue = nil
+    }
+    
+    func testCodableKeyChainWithInitialValue() {
+        XCTAssert(codableKeyChainWithInitialValue == PropertyWrapper.value1)
+        
+        let value2 = CodableStruct(int: 3, str: "foo2")
+        codableKeyChainWithInitialValue = value2
+        
+        XCTAssert(codableKeyChainWithInitialValue == value2)
+        codableKeyChainWithInitialValue = PropertyWrapper.value1
+    }
+    
+    // MARK: Codable, File
+
+    @PersistCodable(in: .file, name: "codableFileWithNoInitialValue")
+        var codableFileWithNoInitialValue: CodableStruct?
+
+    @PersistCodable(in: .file, name: "codableFileWithInitialValue", initialValue: PropertyWrapper.value1)
+        var codableFileWithInitialValue: CodableStruct
+        
+    func testCodableFileWithNoInitialValue() {
+        XCTAssert(codableFileWithNoInitialValue == nil)
+        
+        let value = CodableStruct(int: 1, str: "foo")
+        codableFileWithNoInitialValue = value
+        
+        XCTAssert(codableFileWithNoInitialValue == value)
+        codableFileWithNoInitialValue = nil
+    }
+    
+    func testCodableFileWithInitialValue() {
+        XCTAssert(codableFileWithInitialValue == PropertyWrapper.value1)
+        
+        let value2 = CodableStruct(int: 3, str: "foo2")
+        codableFileWithInitialValue = value2
+        
+        XCTAssert(codableFileWithInitialValue == value2)
+        codableFileWithInitialValue = PropertyWrapper.value1
+    }
 }
