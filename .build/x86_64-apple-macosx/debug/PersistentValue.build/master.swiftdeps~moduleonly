@@ -1,0 +1,5 @@
+version: "Apple Swift version 5.0.1 (swiftlang-1001.0.82.4 clang-1001.0.46.5)"
+options: "d15055ad0e18c8a8a8394761ce866edd"
+build_time: [1572044428, 352891000]
+inputs:
+  "/Users/chris/Desktop/PersistentValue/Sources/PersistentValue/PersistentValue.swift": !dirty [1572043999, 142694944]

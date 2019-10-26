@@ -5,7 +5,5 @@ target 'PersistentValue_Example' do
 
   target 'PersistentValue_Tests' do
     inherit! :search_paths
-
-    
   end
 end

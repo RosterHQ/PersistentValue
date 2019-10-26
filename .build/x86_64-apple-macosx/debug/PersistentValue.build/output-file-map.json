@@ -1,0 +1,11 @@
+{
+  "": {
+    "swift-dependencies": "/Users/chris/Desktop/PersistentValue/.build/x86_64-apple-macosx/debug/PersistentValue.build/master.swiftdeps"
+  },
+  "/Users/chris/Desktop/PersistentValue/Sources/PersistentValue/PersistentValue.swift": {
+    "dependencies": "/Users/chris/Desktop/PersistentValue/.build/x86_64-apple-macosx/debug/PersistentValue.build/PersistentValue.d",
+    "object": "/Users/chris/Desktop/PersistentValue/.build/x86_64-apple-macosx/debug/PersistentValue.build/PersistentValue.swift.o",
+    "swiftmodule": "/Users/chris/Desktop/PersistentValue/.build/x86_64-apple-macosx/debug/PersistentValue.build/PersistentValue~partial.swiftmodule",
+    "swift-dependencies": "/Users/chris/Desktop/PersistentValue/.build/x86_64-apple-macosx/debug/PersistentValue.build/PersistentValue.swiftdeps"
+  }
+}

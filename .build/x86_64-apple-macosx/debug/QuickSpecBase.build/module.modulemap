@@ -1,0 +1,4 @@
+module QuickSpecBase {
+    umbrella header "/Users/chris/Desktop/PersistentValue/.build/checkouts/Quick/Sources/QuickSpecBase/include/QuickSpecBase.h"
+    export *
+}
