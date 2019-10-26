@@ -9,6 +9,27 @@ import SwiftyUserDefaults
 import KeychainAccess
 import Foundation
 
+// See https://nshipster.com/propertywrapper/
+@propertyWrapper
+public struct Persist<Type> {
+    private let persisted: PersistentValue<Type>
+    
+    public init(in storage: PersistentValueStorage, name: String, initialValue: Type? = nil) {
+        persisted = try! PersistentValue<Type>(name: name, storage: storage)
+        
+        if let initialValue = initialValue, persisted.value == nil {
+            persisted.value = initialValue
+        }
+    }
+
+    public var wrappedValue: Type? {
+        get {
+            persisted.value
+        }
+        set { persisted.value = newValue }
+    }
+}
+
 public enum PersistentValueStorage {
     case userDefaults
     case keyChain
@@ -36,7 +57,7 @@ class PersistentValueFile {
             // Using .atomic option because otherwise, if writes are carried out quickly, we seem to run into problems. E.g., when I run my unit test cases, they fail without this.
             try data.write(to: url, options: [.noFileProtection, .atomic])
         } catch (let error) {
-            print("\(error)")
+            print("ERROR: \(error)")
             return false
         }
         
@@ -140,7 +161,12 @@ public class PersistentValue<T> {
                         dict = Dictionary<String, Any>()
                     }
                     
-                    dict[name] = newValue
+                    if let newValue = newValue {
+                        dict[name] = newValue
+                    }
+                    else {
+                        dict.removeValue(forKey: name)
+                    }
                 
                     if !PersistentValueFile.write(dictionary: dict) {
                         print("ERROR: Could not write dictionary to file: " + PersistentValueFile.backingFile)
@@ -148,23 +174,28 @@ public class PersistentValue<T> {
                 
                 case .keyChain:
                     let keychain = Keychain(service: keychainService)
+                    
+                    guard let newValue = newValue else {
+                        try? keychain.remove(name)
+                        return
+                    }
 
                     switch itemType {
                     case .string:
-                        keychain[name] = (newValue as! String)
-                        print("here")
+                        keychain[name] = newValue as? String
+
                     case .int:
                         var value = newValue
                         let data = Data(bytes: &value, count: MemoryLayout<Int>.size)
                         keychain[data: name] = data
-                    
+
                     case .bool:
                         var boolAsInt: Int = (newValue as! Bool) ? 1 : 0
                         let data = Data(bytes: &boolAsInt, count: MemoryLayout<Int>.size)
                         keychain[data: name] = data
                         
                     case .data:
-                        keychain[data: name] = (newValue as! Data)
+                        keychain[data: name] = newValue as? Data
                     }
             }
         }
@@ -190,8 +221,11 @@ public class PersistentValue<T> {
                 case .file:
                     guard let dict = PersistentValueFile.read() else {
                         print("ERROR: Could not read dictionary from file: " + PersistentValueFile.backingFile)
+
                         return nil
                     }
+                    
+                    // print("key: \(name): value: \(dict[name])")
                     
                     return dict[name] as? T
                 

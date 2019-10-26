@@ -19,6 +19,8 @@ class PersistentValueFileTests: XCTestCase {
     }
 
     func testReadWritePersistentValueFile() {
+        let initialValue = PersistentValueFile.read()
+        
         let dict = [
             "a": 1,
             "b": 2
@@ -32,6 +34,11 @@ class PersistentValueFileTests: XCTestCase {
         
         XCTAssert(dictOut["a"] as? Int == 1)
         XCTAssert(dictOut["b"] as? Int == 2)
+        
+        // Return the file to its original state to not mess up other tests.
+        if initialValue != nil {
+            XCTAssert(PersistentValueFile.write(dictionary: initialValue!))
+        }
     }
     
     static var allTests = [
