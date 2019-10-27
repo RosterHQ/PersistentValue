@@ -18,6 +18,7 @@
 		830E48D02363B22700C71C9F /* PersistentValueTests1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 830E48C92363B21300C71C9F /* PersistentValueTests1.swift */; };
 		830E48D12363B22A00C71C9F /* PersistentValueTests2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 830E48CA2363B21300C71C9F /* PersistentValueTests2.swift */; };
 		8387DC822363D6B00041C77A /* PropertyWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8387DC812363D6B00041C77A /* PropertyWrapper.swift */; };
+		8387DC902364EB0E0041C77A /* CodablePropertyWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8387DC8F2364EB0E0041C77A /* CodablePropertyWrapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		830E48C92363B21300C71C9F /* PersistentValueTests1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PersistentValueTests1.swift; path = ../../Tests/PersistentValueTests/PersistentValueTests1.swift; sourceTree = "<group>"; };
 		830E48CA2363B21300C71C9F /* PersistentValueTests2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PersistentValueTests2.swift; path = ../../Tests/PersistentValueTests/PersistentValueTests2.swift; sourceTree = "<group>"; };
 		8387DC812363D6B00041C77A /* PropertyWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PropertyWrapper.swift; path = ../../Tests/PersistentValueTests/PropertyWrapper.swift; sourceTree = "<group>"; };
+		8387DC8F2364EB0E0041C77A /* CodablePropertyWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CodablePropertyWrapper.swift; path = ../../Tests/PersistentValueTests/CodablePropertyWrapper.swift; sourceTree = "<group>"; };
 		8D8DC399076E148C167839F0 /* Pods_PersistentValue_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PersistentValue_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CD0FF26CC3613F8A116F265 /* Pods-PersistentValue_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PersistentValue_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-PersistentValue_Example/Pods-PersistentValue_Example.release.xcconfig"; sourceTree = "<group>"; };
 		AA8CD55BC0C820D3759B388D /* Pods-PersistentValue_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PersistentValue_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PersistentValue_Tests/Pods-PersistentValue_Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				8387DC8F2364EB0E0041C77A /* CodablePropertyWrapper.swift */,
 				8387DC812363D6B00041C77A /* PropertyWrapper.swift */,
 				830E48C82363B21300C71C9F /* PersistentValueFileTests.swift */,
 				830E48C92363B21300C71C9F /* PersistentValueTests1.swift */,
@@ -338,6 +341,7 @@
 			files = (
 				830E48D02363B22700C71C9F /* PersistentValueTests1.swift in Sources */,
 				830E48CF2363B22400C71C9F /* PersistentValueFileTests.swift in Sources */,
+				8387DC902364EB0E0041C77A /* CodablePropertyWrapper.swift in Sources */,
 				8387DC822363D6B00041C77A /* PropertyWrapper.swift in Sources */,
 				830E48D12363B22A00C71C9F /* PersistentValueTests2.swift in Sources */,
 			);
