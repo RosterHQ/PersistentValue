@@ -34,13 +34,23 @@ class CodablePropertyWrapper: XCTestCase {
         var codableUserDefaultsWithInitialValue: CodableStruct
         
     func testCodableUserDefaultsIntWithNoInitialValue() {
-        XCTAssert(codableUserDefaultsWithNoInitialValue == nil)
+        let exp = expectation(description: "hack")
         
-        let value = CodableStruct(int: 1, str: "foo")
+        // [1]
+        XCTAssert(codableUserDefaultsWithNoInitialValue == nil, "\(String(describing: codableUserDefaultsWithNoInitialValue))")
+        
+        let value = CodableStruct(int: 18, str: "foo")
         codableUserDefaultsWithNoInitialValue = value
         
         XCTAssert(codableUserDefaultsWithNoInitialValue == value)
         codableUserDefaultsWithNoInitialValue = nil
+        
+        // Hmmm. Without this delay, on a next test, the line at [1] above fails. The assertion isn't met.
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) {
+            exp.fulfill()
+        }
+        
+        waitForExpectations(timeout: 10, handler: nil)
     }
 
     func testCodableUserDefaultsIntWithInitialValue() {

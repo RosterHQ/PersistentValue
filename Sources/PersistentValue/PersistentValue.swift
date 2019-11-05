@@ -39,7 +39,12 @@ class PersistentValueFile {
         do {
             // The .noFileProtection option is so this file can be used when the app is launched in the background-- see (https://forums.developer.apple.com/thread/15685)
             // Using .atomic option because otherwise, if writes are carried out quickly, we seem to run into problems. E.g., when I run my unit test cases, they fail without this.
-            try data.write(to: url, options: [.noFileProtection, .atomic])
+            var options: Data.WritingOptions = [.atomic]
+            #if !os(OSX)
+                options.update(with: .noFileProtection)
+            #endif
+            
+            try data.write(to: url, options: options)
         } catch (let error) {
             print("ERROR: \(error)")
             return false
@@ -108,16 +113,16 @@ public class PersistentValue<T> {
                     switch itemType {
                     case .string:
                         let key = DefaultsKey<String?>(name)
-                        Defaults[key] = newValue as? String
+                        Defaults[key: key] = newValue as? String
                     case .int:
                         let key = DefaultsKey<Int?>(name)
-                        Defaults[key] = newValue as? Int
+                        Defaults[key: key] = newValue as? Int
                     case .bool:
                         let key = DefaultsKey<Bool?>(name)
-                        Defaults[key] = newValue as? Bool
+                        Defaults[key: key] = newValue as? Bool
                     case .data:
                         let key = DefaultsKey<Data?>(name)
-                        Defaults[key] = newValue as? Data
+                        Defaults[key: key] = newValue as? Data
                     }
                 
                     // 1/30/19; This is now deprecated. See Apple's docs and (https://medium.com/@hanru.yeh/nsuserdefaults-is-planned-to-deprecated-cc185e19e6f8) and (https://stackoverflow.com/questions/9647931/nsuserdefaults-synchronize-method)
@@ -182,16 +187,16 @@ public class PersistentValue<T> {
                     switch itemType {
                     case .string:
                         let key = DefaultsKey<String?>(name)
-                        return Defaults[key] as? T
+                        return Defaults[key: key] as? T
                     case .int:
                         let key = DefaultsKey<Int?>(name)
-                        return Defaults[key] as? T
+                        return Defaults[key: key] as? T
                     case .bool:
                         let key = DefaultsKey<Bool?>(name)
-                        return Defaults[key] as? T
+                        return Defaults[key: key] as? T
                     case .data:
                         let key = DefaultsKey<Data?>(name)
-                        return Defaults[key] as? T
+                        return Defaults[key: key] as? T
                     }
                 
                 case .file:

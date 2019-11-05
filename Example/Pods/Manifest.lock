@@ -1,9 +1,9 @@
 PODS:
   - KeychainAccess (3.2.1)
-  - PersistentValue (0.3.0):
+  - PersistentValue (0.5.0):
     - KeychainAccess (~> 3.1)
-    - SwiftyUserDefaults (~> 4.0)
-  - SwiftyUserDefaults (4.0.0)
+    - SwiftyUserDefaults (~> 5.0.0-beta)
+  - SwiftyUserDefaults (5.0.0-beta.5)
 
 DEPENDENCIES:
   - PersistentValue (from `../`)
@@ -19,8 +19,8 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   KeychainAccess: d5470352939ced6d6f7fb51cb2e67aae51fc294f
-  PersistentValue: f17c17054687c1f2c50a5f358062dfab2e37cbbd
-  SwiftyUserDefaults: 6a1951df1daa19337862b677dd9a4b9bd4c288cd
+  PersistentValue: 7d8c970dee3c7c92d080b6419afeecd310834bf7
+  SwiftyUserDefaults: 8880483e55be344dce2e5e2f18c70b0564ff7676
 
 PODFILE CHECKSUM: e854eac85dc9b37cb82d5f1c6c541f8f8bc688e5
 

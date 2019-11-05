@@ -1,11 +1,29 @@
 {
   "": {
-    "swift-dependencies": "/Users/chris/Desktop/PersistentValue/.build/x86_64-apple-macosx/debug/PersistentValue.build/master.swiftdeps"
+    "swift-dependencies": "/Users/chris/Desktop/Apps/repos/PersistentValue/.build/x86_64-apple-macosx/debug/PersistentValue.build/master.swiftdeps"
   },
-  "/Users/chris/Desktop/PersistentValue/Sources/PersistentValue/PersistentValue.swift": {
-    "dependencies": "/Users/chris/Desktop/PersistentValue/.build/x86_64-apple-macosx/debug/PersistentValue.build/PersistentValue.d",
-    "object": "/Users/chris/Desktop/PersistentValue/.build/x86_64-apple-macosx/debug/PersistentValue.build/PersistentValue.swift.o",
-    "swiftmodule": "/Users/chris/Desktop/PersistentValue/.build/x86_64-apple-macosx/debug/PersistentValue.build/PersistentValue~partial.swiftmodule",
-    "swift-dependencies": "/Users/chris/Desktop/PersistentValue/.build/x86_64-apple-macosx/debug/PersistentValue.build/PersistentValue.swiftdeps"
+  "/Users/chris/Desktop/Apps/repos/PersistentValue/Sources/PersistentValue/Persist.swift": {
+    "dependencies": "/Users/chris/Desktop/Apps/repos/PersistentValue/.build/x86_64-apple-macosx/debug/PersistentValue.build/Persist.d",
+    "object": "/Users/chris/Desktop/Apps/repos/PersistentValue/.build/x86_64-apple-macosx/debug/PersistentValue.build/Persist.swift.o",
+    "swiftmodule": "/Users/chris/Desktop/Apps/repos/PersistentValue/.build/x86_64-apple-macosx/debug/PersistentValue.build/Persist~partial.swiftmodule",
+    "swift-dependencies": "/Users/chris/Desktop/Apps/repos/PersistentValue/.build/x86_64-apple-macosx/debug/PersistentValue.build/Persist.swiftdeps"
+  },
+  "/Users/chris/Desktop/Apps/repos/PersistentValue/Sources/PersistentValue/PersistCodable.swift": {
+    "dependencies": "/Users/chris/Desktop/Apps/repos/PersistentValue/.build/x86_64-apple-macosx/debug/PersistentValue.build/PersistCodable.d",
+    "object": "/Users/chris/Desktop/Apps/repos/PersistentValue/.build/x86_64-apple-macosx/debug/PersistentValue.build/PersistCodable.swift.o",
+    "swiftmodule": "/Users/chris/Desktop/Apps/repos/PersistentValue/.build/x86_64-apple-macosx/debug/PersistentValue.build/PersistCodable~partial.swiftmodule",
+    "swift-dependencies": "/Users/chris/Desktop/Apps/repos/PersistentValue/.build/x86_64-apple-macosx/debug/PersistentValue.build/PersistCodable.swiftdeps"
+  },
+  "/Users/chris/Desktop/Apps/repos/PersistentValue/Sources/PersistentValue/PersistentCodableValue.swift": {
+    "dependencies": "/Users/chris/Desktop/Apps/repos/PersistentValue/.build/x86_64-apple-macosx/debug/PersistentValue.build/PersistentCodableValue.d",
+    "object": "/Users/chris/Desktop/Apps/repos/PersistentValue/.build/x86_64-apple-macosx/debug/PersistentValue.build/PersistentCodableValue.swift.o",
+    "swiftmodule": "/Users/chris/Desktop/Apps/repos/PersistentValue/.build/x86_64-apple-macosx/debug/PersistentValue.build/PersistentCodableValue~partial.swiftmodule",
+    "swift-dependencies": "/Users/chris/Desktop/Apps/repos/PersistentValue/.build/x86_64-apple-macosx/debug/PersistentValue.build/PersistentCodableValue.swiftdeps"
+  },
+  "/Users/chris/Desktop/Apps/repos/PersistentValue/Sources/PersistentValue/PersistentValue.swift": {
+    "dependencies": "/Users/chris/Desktop/Apps/repos/PersistentValue/.build/x86_64-apple-macosx/debug/PersistentValue.build/PersistentValue.d",
+    "object": "/Users/chris/Desktop/Apps/repos/PersistentValue/.build/x86_64-apple-macosx/debug/PersistentValue.build/PersistentValue.swift.o",
+    "swiftmodule": "/Users/chris/Desktop/Apps/repos/PersistentValue/.build/x86_64-apple-macosx/debug/PersistentValue.build/PersistentValue~partial.swiftmodule",
+    "swift-dependencies": "/Users/chris/Desktop/Apps/repos/PersistentValue/.build/x86_64-apple-macosx/debug/PersistentValue.build/PersistentValue.swiftdeps"
   }
 }

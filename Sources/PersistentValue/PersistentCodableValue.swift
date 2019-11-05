@@ -30,7 +30,7 @@ public class PersistentCodableValue<T: Codable> {
                         Defaults.remove(key)
                     }
                     else {
-                        Defaults[key] = encodedValue
+                        Defaults[key: key] = encodedValue
                     }
                 
                 case .file:
@@ -75,7 +75,7 @@ public class PersistentCodableValue<T: Codable> {
             switch storage {
                 case .userDefaults:
                     let key = DefaultsKey<Data?>(name)
-                    data = Defaults[key]
+                    data = Defaults[key: key]
                 
                 case .file:
                     guard let dict = PersistentValueFile.read() else {

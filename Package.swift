@@ -8,6 +8,10 @@ import PackageDescription
 
 let package = Package(
     name: "PersistentValue",
+    platforms: [
+        // Minimum needed for SwiftyUserDefaults
+        .macOS(.v10_11)
+    ],
     products: [
         // Products define the executables and libraries produced by a package, and make them visible to other packages.
         .library(
@@ -15,7 +19,10 @@ let package = Package(
             targets: ["PersistentValue"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/sunshinejr/SwiftyUserDefaults.git", from: "4.0.0"),
+        // Trying to resolve "GenericCache: cyclic metadata dependency detected, aborting"
+        .package(url: "https://github.com/sunshinejr/SwiftyUserDefaults.git", from: "5.0.0-beta"),
+        // .package(url: "https://github.com/sunshinejr/SwiftyUserDefaults.git", from: "4.0.0"),
+        
         .package(url: "https://github.com/kishikawakatsumi/KeychainAccess.git", from: "3.2.1")
     ],
     targets: [

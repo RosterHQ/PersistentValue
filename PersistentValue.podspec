@@ -25,7 +25,10 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '8.0'
   s.source_files = 'Sources/PersistentValue/**/*'
   s.dependency 'KeychainAccess', '~> 3.1'
-  s.dependency 'SwiftyUserDefaults', '~> 4.0'
+  
+  # Having a probleem with crash in Release mode-- "GenericCache: cyclic metadata dependency detected, aborting", trying to fix.
+  # s.dependency 'SwiftyUserDefaults', '~> 4.0'
+  s.dependency 'SwiftyUserDefaults', '~> 5.0.0-beta'
 
   s.swift_version = '4.2'
 end
