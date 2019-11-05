@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'PersistentValue'
-  s.version          = '0.5.0'
+  s.version          = '0.6.0'
   s.summary          = 'Type safe persistent values for NSUserDefaults, KeyChain, and values backed by an app file'
 
   # Temporary-- this Pod really needs to be pushed up to Cocoapods
