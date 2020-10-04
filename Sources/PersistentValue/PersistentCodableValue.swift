@@ -58,7 +58,7 @@ public class PersistentCodableValue<T: Codable> {
                     }
                 
                 case .keyChain:
-                    let keychain = Keychain(service: keychainService)
+                    let keychain = PersistentValueKeychain.keychain
                     
                     guard let _ = newValue else {
                         try? keychain.remove(name)
@@ -87,7 +87,7 @@ public class PersistentCodableValue<T: Codable> {
                     data = dict[name] as? Data
                 
                 case .keyChain:
-                    let keychain = Keychain(service: keychainService)
+                    let keychain = PersistentValueKeychain.keychain
                     data = keychain[data: name]
             }
             

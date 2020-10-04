@@ -9,15 +9,31 @@ import SwiftyUserDefaults
 import KeychainAccess
 import Foundation
 
-// Previously, this string was the same across some variants of the app I was building -- however, this generated a problem -- it caused sharing of keychain values across the app store and beta apps! See also (https://stackoverflow.com/questions/47272209/sharing-of-keychain-values-across-apps-with-similar-bundle-ids)
-let keychainService = Bundle.main.bundleIdentifier!
-
 public enum PersistentValueStorage {
     case userDefaults
     case keyChain
     
     // Similar to userDefaults, but stored in specific app file.
     case file
+}
+
+public class PersistentValueKeychain {
+    // Previously, `keychainService` was the same across some variants of the app I was building -- however, this generated a problem -- it caused sharing of keychain values across the app store and beta apps! See also (https://stackoverflow.com/questions/47272209/sharing-of-keychain-values-across-apps-with-similar-bundle-ids)
+
+    // By default, the bundle identifier. Change this to a consistent value if you want to share with an extension.
+    public static var keychainService = Bundle.main.bundleIdentifier!
+    
+    // Set this if you want to share keychain items with an extension. See also https://developer.apple.com/documentation/security/keychain_services/keychain_items/sharing_access_to_keychain_items_among_a_collection_of_apps
+    public static var accessGroup: String?
+    
+    static var keychain: Keychain {
+        if let accessGroup = accessGroup {
+            return Keychain(service: keychainService, accessGroup: accessGroup)
+        }
+        else {
+            return Keychain(service: keychainService)
+        }
+    }
 }
 
 public class PersistentValueFile {
@@ -166,7 +182,7 @@ public class PersistentValue<T> {
                     }
                 
                 case .keyChain:
-                    let keychain = Keychain(service: keychainService)
+                    let keychain = PersistentValueKeychain.keychain
                     
                     guard let newValue = newValue else {
                         try? keychain.remove(name)
@@ -223,7 +239,7 @@ public class PersistentValue<T> {
                     return dict[name] as? T
                 
                 case .keyChain:
-                    let keychain = Keychain(service: keychainService)
+                    let keychain = PersistentValueKeychain.keychain
 
                     switch itemType {
                     case .string:
