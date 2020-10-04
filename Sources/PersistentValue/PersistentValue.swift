@@ -20,15 +20,27 @@ public enum PersistentValueStorage {
     case file
 }
 
-class PersistentValueFile {
+public class PersistentValueFile {
     // for PersistentValueStorage.file; directory is the Documents directory for the app.
     static let defaultBackingFile = "PersistentValues"
     
     // Change this at app launch if you want to change the backing file used for PersistentValueStorage.file
     public static var backingFile = defaultBackingFile
+
+    // In case you want to use a shared container, this is intended for a application group identifier directory. https://developer.apple.com/documentation/bundleresources/entitlements/com_apple_security_application-groups
+    // If set, this is used rather than the standard Documents directory for an app.
+    public static var alternativeDocumentsDirectory: String?
     
     static var filePath: String {
-        let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+        let documentsPath: String
+        
+        if let alternativeDocumentsDirectory = alternativeDocumentsDirectory {
+            documentsPath = alternativeDocumentsDirectory
+        }
+        else {
+            documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+        }
+        
         return documentsPath + "/" + PersistentValueFile.backingFile
     }
     

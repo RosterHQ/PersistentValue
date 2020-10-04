@@ -30,9 +30,13 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages which this package depends on.
         .target(
             name: "PersistentValue",
-            dependencies: ["SwiftyUserDefaults", "KeychainAccess"]),
+            dependencies: ["SwiftyUserDefaults", "KeychainAccess"])
+            
+        // The tests are in the demo app.
+        /*
         .testTarget(
             name: "PersistentValueTests",
             dependencies: ["PersistentValue", "SwiftyUserDefaults", "KeychainAccess"]),
+        */
     ]
 )

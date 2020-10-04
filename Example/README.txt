@@ -1,0 +1,1 @@
+Unit tests are in this demo. I get KeyChain errors when I try to run the tests in the package, standalone.
