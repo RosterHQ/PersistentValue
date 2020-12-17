@@ -6,8 +6,8 @@
         "repositoryURL": "https://github.com/kishikawakatsumi/KeychainAccess.git",
         "state": {
           "branch": null,
-          "revision": "8d33ffd6f74b3bcfc99af759d4204c6395a3f918",
-          "version": "3.2.1"
+          "revision": "654d52d30f3dd4592e944c3e0bccb53178c992f6",
+          "version": "4.2.1"
         }
       },
       {
@@ -15,8 +15,8 @@
         "repositoryURL": "https://github.com/sunshinejr/SwiftyUserDefaults.git",
         "state": {
           "branch": null,
-          "revision": "dbd126b8957fc5af94d1ed5443f8f4b9405356ee",
-          "version": "5.0.0-beta.5"
+          "revision": "28c8805314e67683f727c3376e69cbd4b8b590bb",
+          "version": "5.1.0"
         }
       }
     ]
