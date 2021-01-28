@@ -20,7 +20,7 @@ let package = Package(
     ],
     dependencies: [
         // Trying to resolve "GenericCache: cyclic metadata dependency detected, aborting"
-        .package(url: "https://github.com/sunshinejr/SwiftyUserDefaults.git", from: "5.0.0-beta"),
+        .package(url: "https://github.com/sunshinejr/SwiftyUserDefaults.git", from: "5.1.0"),
         // .package(url: "https://github.com/sunshinejr/SwiftyUserDefaults.git", from: "4.0.0"),
         
         .package(url: "https://github.com/kishikawakatsumi/KeychainAccess.git", from: "4.2.1")
