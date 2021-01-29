@@ -1,5 +1,8 @@
 PersistentValue
 
+Version 0.7.1 (1/28/21)
+	Fix tagging issue.
+	
 Version 0.7.0 (1/27/21)
 	Updated manifest
 	
