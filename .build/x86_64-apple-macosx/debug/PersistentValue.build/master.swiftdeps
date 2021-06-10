@@ -1,0 +1,8 @@
+version: "Apple Swift version 5.1 (swiftlang-1100.0.270.13 clang-1100.0.33.7)"
+options: "06e68eeb10f6b125168a0c817b2377e0"
+build_time: [1572976987, 243951000]
+inputs:
+  "/Users/chris/Desktop/Apps/repos/PersistentValue/Sources/PersistentValue/Persist.swift": [1572974166, 639217782]
+  "/Users/chris/Desktop/Apps/repos/PersistentValue/Sources/PersistentValue/PersistCodable.swift": [1572066744, 175622462]
+  "/Users/chris/Desktop/Apps/repos/PersistentValue/Sources/PersistentValue/PersistentCodableValue.swift": [1572975434, 995166823]
+  "/Users/chris/Desktop/Apps/repos/PersistentValue/Sources/PersistentValue/PersistentValue.swift": [1572976928, 992966913]
